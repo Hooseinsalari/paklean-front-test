@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  font-family: "Vazirmatn", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
