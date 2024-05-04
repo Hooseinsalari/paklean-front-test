@@ -9,9 +9,16 @@ import { validateEmail, validateUsername } from "../../../helper/functions";
 // components
 import TextField from "../../modules/TextField/TextField";
 import DatePickerField from "../../modules/DatePickerField/DatePickerField";
+import DropDown from "../../modules/DropDown/DropDown";
 
 // icon
 import { HiOutlineMail } from "react-icons/hi";
+
+// drop down values
+const genderOptions = [
+  { value: "male", label: "Male" },
+  { value: "female", label: "Female" },
+];
 
 const SignUpForm = () => {
   // ** states
@@ -89,6 +96,11 @@ const SignUpForm = () => {
         name="phoneNumber"
         value={formValues.phoneNumber}
         onChange={inputHandler}
+      />
+
+      <DropDown
+        options={genderOptions}
+        onChange={(value) => setFormValues({ ...formValues, gender: value })}
       />
 
       <button className="w-full bg-blue-500 p-4 mt-12 rounded-lg text-white shadow-sm transition duration-200 hover:shadow-blue-600">
