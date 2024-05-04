@@ -4,9 +4,15 @@ interface DropDownProps {
   options: Array<{ value: string; label: string }>;
   placeholder?: string;
   onChange: (value: string) => void;
+  selected?: string;
 }
 
-const DropDown = ({ options, placeholder, onChange }: DropDownProps) => {
+const DropDown = ({
+  options,
+  placeholder,
+  onChange,
+  selected,
+}: DropDownProps) => {
   // ** handler
   const handler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     onChange(e.target.value);
@@ -14,7 +20,7 @@ const DropDown = ({ options, placeholder, onChange }: DropDownProps) => {
 
   return (
     <select
-      defaultValue={placeholder}
+      defaultValue={selected}
       className="textField__input"
       onChange={handler}
     >
