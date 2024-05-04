@@ -4,7 +4,7 @@ import SignUpForm from "../components/templates/SignUp/SignUpForm";
 
 const SignupPage = () => {
   return (
-    <div className="bg-primary w-full px-4 py-6">
+    <div className="bg-primary w-full px-4 py-6 h-screen">
       <Header />
 
       <SignUpForm />
