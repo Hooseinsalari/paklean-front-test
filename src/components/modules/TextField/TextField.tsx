@@ -11,7 +11,7 @@ const TextField = ({
   error,
 }: TextFieldInterface) => {
   return (
-    <div className="my-4">
+    <div className={`${type !== "date" && "my-4"}`}>
       <div className="textField__input flex items-center justify-between">
         <input
           autoComplete="off"

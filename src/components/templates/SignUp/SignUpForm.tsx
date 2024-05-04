@@ -8,6 +8,7 @@ import { validateEmail, validateUsername } from "../../../helper/functions";
 
 // components
 import TextField from "../../modules/TextField/TextField";
+import DatePickerField from "../../modules/DatePickerField/DatePickerField";
 
 // icon
 import { HiOutlineMail } from "react-icons/hi";
@@ -17,7 +18,7 @@ const SignUpForm = () => {
   const [formValues, setFormValues] = useState<FormValuesInterface>({
     username: "",
     position: "",
-    dateOfBirth: new Date(),
+    dateOfBirth: null,
     email: "",
     phoneNumber: "",
     gender: "",
@@ -45,6 +46,7 @@ const SignUpForm = () => {
 
     console.log(formValues);
   };
+
   return (
     <form className="mt-8" onSubmit={submitHandler} autoComplete="off">
       <TextField
@@ -62,6 +64,13 @@ const SignUpForm = () => {
         name="position"
         value={formValues.position}
         onChange={inputHandler}
+      />
+
+      <DatePickerField
+        dateValue={formValues.dateOfBirth}
+        onChange={(date) =>
+          setFormValues({ ...formValues, dateOfBirth: date! })
+        }
       />
 
       <TextField

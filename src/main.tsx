@@ -5,6 +5,9 @@ import "./index.css";
 
 import { BrowserRouter } from "react-router-dom";
 
+// date picker
+import "react-datepicker/dist/react-datepicker.css";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
