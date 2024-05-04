@@ -14,4 +14,11 @@ const validateEmail = (email: string) => {
   return null;
 };
 
-export { validateEmail, validateUsername };
+// check object values
+const isEveryFieldFilled = <T extends Record<string, any>>(obj: T) => {
+  return Object.values(obj).every(
+    (value) => value !== null && value !== undefined && value !== ""
+  );
+};
+
+export { validateEmail, validateUsername, isEveryFieldFilled };

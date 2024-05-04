@@ -1,19 +1,27 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // types
 import { FormErrors, FormValuesInterface } from "../../../types";
 
 // helper
-import { validateEmail, validateUsername } from "../../../helper/functions";
+import {
+  isEveryFieldFilled,
+  validateEmail,
+  validateUsername,
+} from "../../../helper/functions";
 
 // components
 import TextField from "../../modules/TextField/TextField";
 import DatePickerField from "../../modules/DatePickerField/DatePickerField";
 import DropDown from "../../modules/DropDown/DropDown";
+import Button from "../../modules/Button/Button";
 
 // icon
 import { HiOutlineMail } from "react-icons/hi";
-import Button from "../../modules/Button/Button";
+
+// react cookie
+import { useCookies } from "react-cookie";
 
 // drop down values
 const genderOptions = [
@@ -32,6 +40,12 @@ const SignUpForm = () => {
     gender: "",
   });
   const [errors, setErrors] = useState<FormErrors>({ username: "", email: "" });
+
+  // ** cookies
+  const [_, setCookie] = useCookies(["User"]);
+
+  // ** navigate
+  const navigate = useNavigate();
 
   // ** handlers
   const inputHandler = (e: React.FormEvent<HTMLInputElement>) => {
@@ -52,7 +66,12 @@ const SignUpForm = () => {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log(formValues);
+    if (isEveryFieldFilled(formValues) && !errors.username && !errors.email) {
+      setCookie("User", formValues, { path: "/" });
+      navigate("/", {
+        replace: true,
+      });
+    }
   };
 
   return (

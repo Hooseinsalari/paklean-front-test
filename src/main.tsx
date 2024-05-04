@@ -8,10 +8,15 @@ import { BrowserRouter } from "react-router-dom";
 // date picker
 import "react-datepicker/dist/react-datepicker.css";
 
+// react cookie
+import { CookiesProvider } from "react-cookie";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <CookiesProvider>
+        <App />
+      </CookiesProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
