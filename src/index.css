@@ -15,6 +15,10 @@ body {
   .textField__input {
     @apply w-full text-slate-400 bg-primary border-slate-100 border p-4 rounded-lg focus-visible:outline-none caret-white;
   }
+
+  .primary__btn {
+    @apply w-full p-4 rounded-lg shadow-sm transition duration-200 font-bold;
+  }
 }
 
 .react-datepicker-wrapper {

@@ -13,6 +13,7 @@ import DropDown from "../../modules/DropDown/DropDown";
 
 // icon
 import { HiOutlineMail } from "react-icons/hi";
+import Button from "../../modules/Button/Button";
 
 // drop down values
 const genderOptions = [
@@ -103,9 +104,11 @@ const SignUpForm = () => {
         onChange={(value) => setFormValues({ ...formValues, gender: value })}
       />
 
-      <button className="w-full bg-blue-500 p-4 mt-12 rounded-lg text-white shadow-sm transition duration-200 hover:shadow-blue-600">
-        Submit
-      </button>
+      <Button
+        label="Submit"
+        onClick={() => null}
+        customStyle="bg-blue-500 mt-16 text-[#202124] hover:shadow-blue-600"
+      />
     </form>
   );
 };
