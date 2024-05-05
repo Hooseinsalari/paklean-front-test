@@ -10,8 +10,8 @@ const UserData = () => {
   return (
     <div className="flex items-center justify-center flex-col text-white">
       <HiOutlineUserCircle className="text-9xl" />
-      <h4 className="mt-2">{User.username}</h4>
-      <h4 className="text-xs mt-1">{User.email}</h4>
+      <h4 className="mt-2">{User?.username}</h4>
+      <h4 className="text-xs mt-1">{User?.email}</h4>
     </div>
   );
 };
