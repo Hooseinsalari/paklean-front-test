@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // types
@@ -42,10 +42,17 @@ const SignUpForm = () => {
   const [errors, setErrors] = useState<FormErrors>({ username: "", email: "" });
 
   // ** cookies
-  const [_, setCookie] = useCookies(["User"]);
+  const [cookies, setCookie] = useCookies(["User"]);
 
   // ** navigate
   const navigate = useNavigate();
+
+  // ** useEffect
+  useEffect(() => {
+    if (cookies.User) {
+      navigate("/", { replace: true });
+    }
+  });
 
   // ** handlers
   const inputHandler = (e: React.FormEvent<HTMLInputElement>) => {
